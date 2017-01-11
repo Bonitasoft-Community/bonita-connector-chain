@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>ChainGetAssetConnector</id>
+  <version>1.0</version>
+  <category icon="chain-logo.png" id="chain-logo"/>
+  <input name="url" type="java.lang.String"/>
+  <input name="accountToken" type="java.lang.String"/>
+  <input mandatory="true" name="alias" type="java.lang.String"/>
+  <output name="asset" type="org.bonitasoft.connectors.chain.Asset"/>
+  <page id="client-page">
+    <widget xsi:type="definition:Text" id="url" inputName="url"/>
+    <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>
+  </page>
+  <page id="asset-page">
+    <widget xsi:type="definition:Text" id="alias" inputName="alias"/>
+  </page>
+</definition:ConnectorDefinition>
