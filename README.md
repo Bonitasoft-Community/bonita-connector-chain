@@ -2,3 +2,10 @@
 Set of connectors for Chain
 
 First install this project locally: https://github.com/bonitasoft/bonita-connectors
+
+## Build the connectors 
+
+Run the command:
+```    
+mvn package
+```
