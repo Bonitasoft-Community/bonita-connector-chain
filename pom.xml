@@ -12,5 +12,6 @@
 		<module>chain-get-asset</module>
     <module>chain-issue-asset</module>
     <module>chain-get-balance</module>
+		<module>chain-spend-asset</module>
 	</modules>
 </project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>ChainSpendAssetConnector-impl</implementationId>
+  <implementationVersion>1.0</implementationVersion>
+  <definitionId>ChainSpendAssetConnector</definitionId>
+  <definitionVersion>1.0</definitionVersion>
+  <implementationClassname>org.bonitasoft.connectors.chain.ChainSpendAssetConnector</implementationClassname>
+  <hasSources>true</hasSources>
+  <description>The implementation of the Chain Spend asset connector.</description>
+  <jarDependencies>
+    <jarDependency>chain-spend-asset-impl-1.0.jar</jarDependency>
+    <jarDependency>chain-sdk-1.0.jar</jarDependency>
+  </jarDependencies>
+</implementation:connectorImplementation>

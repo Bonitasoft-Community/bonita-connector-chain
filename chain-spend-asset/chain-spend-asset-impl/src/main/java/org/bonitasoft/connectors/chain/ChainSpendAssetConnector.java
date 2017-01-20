@@ -25,7 +25,7 @@ import java.util.Arrays;
  * 5 - getOutputParameters() --> output are retrieved from connector
  * 6 - disconnect() --> the connector can close connection to remote server (if any)
  */
-public class ChainIssueAssetConnector extends AbstractChainIssueAssetImpl {
+public class ChainSpendAssetConnector extends AbstractChainSpendAssetImpl {
 
 	@Override
 	protected void executeBusinessLogic() throws ConnectorException{
@@ -34,7 +34,7 @@ public class ChainIssueAssetConnector extends AbstractChainIssueAssetImpl {
 		//getAccountToken();
 		//getAlias();
 	
-	    final Logger logger = LoggerFactory.getLogger(ChainIssueAssetConnector.class);
+	    final Logger logger = LoggerFactory.getLogger(ChainSpendAssetConnector.class);
 	    
 	    Client client;
 	    
@@ -57,19 +57,23 @@ public class ChainIssueAssetConnector extends AbstractChainIssueAssetImpl {
 					MockHsm.Key assetKey = 
                 new MockHsm.Key.QueryBuilder().setAliases(Arrays.asList(getKeyAssetAlias())).execute(client).next();
 				
-					MockHsm.Key accountKey = 
-											new MockHsm.Key.QueryBuilder().setAliases(Arrays.asList(getKeyAccountAlias())).execute(client).next();
-    	    
-					HsmSigner.addKey(assetKey, MockHsm.getSignerClient(client));
-					HsmSigner.addKey(accountKey, MockHsm.getSignerClient(client));
+					MockHsm.Key accountFromKey =
+											new MockHsm.Key.QueryBuilder().setAliases(Arrays.asList(getKeyAccountFromAlias())).execute(client).next();
 
-				Transaction.Template issueTransaction = new Transaction.Builder()
-						.addAction(
-								new Transaction.Action.Issue().setAssetAlias(getAssetAlias()).setAmount(Long.parseLong(getAmount())))
-						.addAction(new Transaction.Action.ControlWithAccount().setAccountAlias(getAccountAlias())
-								.setAssetAlias(getAssetAlias()).setAmount(Long.parseLong(getAmount())))
-						.build(client);
+			MockHsm.Key accountToKey =
+					new MockHsm.Key.QueryBuilder().setAliases(Arrays.asList(getKeyAccountToAlias())).execute(client).next();
 
+			HsmSigner.addKey(assetKey, MockHsm.getSignerClient(client));
+			HsmSigner.addKey(accountFromKey, MockHsm.getSignerClient(client));
+			HsmSigner.addKey(accountToKey, MockHsm.getSignerClient(client));
+
+
+			Transaction.Template issueTransaction = new Transaction.Builder()
+				                 .addAction(
+				                         new Transaction.Action.SpendFromAccount().setAssetAlias(getAssetAlias()).setAccountAlias(getAccountFromAlias()).setAmount(Long.parseLong(getAmount())))
+				                 .addAction(new Transaction.Action.ControlWithAccount().setAccountAlias(getAccountToAlias())
+				                         .setAssetAlias(getAssetAlias()).setAmount(Long.parseLong(getAmount())))
+				                 .build(client);
 				         
 				  Transaction.Template signedIssuance = HsmSigner.sign(issueTransaction);
 				  Transaction.SubmitResponse submitResponse = Transaction.submit(client, signedIssuance);
@@ -84,7 +88,6 @@ public class ChainIssueAssetConnector extends AbstractChainIssueAssetImpl {
 			else {
 				throw new ConnectorException("Error while getting the Chain account", e.getCause());
 			}
-
 	    }
 	 }
 

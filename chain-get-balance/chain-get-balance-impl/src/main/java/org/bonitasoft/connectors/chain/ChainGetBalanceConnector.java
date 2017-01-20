@@ -46,10 +46,15 @@ public class ChainGetBalanceConnector extends AbstractChainGetBalanceImpl {
 			Balance.Items items = new Balance.QueryBuilder()
 					.setFilter("account_alias=$1 AND asset_alias=$2").addFilterParameter(getAccountAlias())
 					.addFilterParameter(getAssetAlias()).execute(client);
-			Balance resultOne = items.next();
+			Balance resultOne = null;
+			if (items.hasNext()) {
+				resultOne = items.next();
+			}
 			org.bonitasoft.connectors.chain.Balance balance = null;
 			if (resultOne != null) {
 				balance = new org.bonitasoft.connectors.chain.Balance(resultOne.amount);
+			} else {
+				balance = new org.bonitasoft.connectors.chain.Balance(0L);
 			}
 			setBalance(balance);
 	    } catch (ChainException e) {

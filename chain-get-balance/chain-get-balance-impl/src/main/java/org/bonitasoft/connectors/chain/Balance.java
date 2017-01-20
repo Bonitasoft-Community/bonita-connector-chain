@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Balance implements Serializable {
     
-    private long amount;
+    private Long amount;
     
-    public Balance(long amount) {
+    public Balance(Long amount) {
         this.amount = amount;
     }
 
@@ -14,7 +14,7 @@ public class Balance implements Serializable {
         return amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class TransactionResponse implements Serializable {
 
+
     private String id;
     private Boolean error;
     private String errorCode;

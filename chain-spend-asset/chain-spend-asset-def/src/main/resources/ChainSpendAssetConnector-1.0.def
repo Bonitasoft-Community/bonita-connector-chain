@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>ChainSpendAssetConnector</id>
+  <version>1.0</version>
+  <category icon="chain-logo.png" id="chain-logo"/>
+  <input name="url" type="java.lang.String"/>
+  <input name="accountToken" type="java.lang.String"/>
+  <input mandatory="true" name="assetAlias" type="java.lang.String"/>
+  <input mandatory="true" name="amount" type="java.lang.String"/>
+  <input mandatory="true" name="accountFromAlias" type="java.lang.String"/>
+  <input mandatory="true" name="accountToAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAccountFromAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAccountToAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAssetAlias" type="java.lang.String"/>
+  <output name="transactionResponse" type="org.bonitasoft.connectors.chain.TransactionResponse"/>
+  <page id="client-page">
+    <widget xsi:type="definition:Text" id="url" inputName="url"/>
+    <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>
+  </page>
+  <page id="transaction-page">
+    <widget xsi:type="definition:Text" id="assetAlias" inputName="assetAlias"/>
+    <widget xsi:type="definition:Text" id="amount" inputName="amount"/>
+    <widget xsi:type="definition:Text" id="accountFromAlias" inputName="accountFromAlias"/>
+    <widget xsi:type="definition:Text" id="accountToAlias" inputName="accountToAlias"/>
+    <widget xsi:type="definition:Text" id="keyAccountFromAlias" inputName="keyAccountFromAlias"/>
+    <widget xsi:type="definition:Text" id="keyAccountToAlias" inputName="keyAccountToAlias"/>
+    <widget xsi:type="definition:Text" id="keyAssetAlias" inputName="keyAssetAlias"/>
+  </page>
+</definition:ConnectorDefinition>
