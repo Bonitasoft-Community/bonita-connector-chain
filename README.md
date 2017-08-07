@@ -26,4 +26,4 @@ To import the connector in your Studio:
 * Go to Development -> Connectors -> Import connector
 * In the invite window, select a zip version of the built connector
 
-**Important: Never try to open the implementation of an imported connector in the Studio, it will result by overriding the imported implementation by an empty one.**
+**Important: Never try to open the implementation of an imported connector in the Studio, it will overwrite the imported implementation by an empty one.**
