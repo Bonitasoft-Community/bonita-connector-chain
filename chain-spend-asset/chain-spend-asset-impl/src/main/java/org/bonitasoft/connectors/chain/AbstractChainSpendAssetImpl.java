@@ -8,6 +8,8 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 	protected final static String URL_INPUT_PARAMETER = "url";
 	protected final static String ACCOUNTTOKEN_INPUT_PARAMETER = "accountToken";
 	protected final static String ASSET_ALIAS_INPUT_PARAMETER = "assetAlias";
+	protected final static String ASSET_ID_INPUT_PARAMETER = "assetId";
+
 	protected final static String ACCOUNT_FROM_ALIAS_INPUT_PARAMETER = "accountFromAlias";
 	protected final static String ACCOUNT_TO_ALIAS_INPUT_PARAMETER = "accountToAlias";
 
@@ -16,6 +18,8 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 	protected final static String KEY_ACCOUNT_FROM_ALIAS_INPUT_PARAMETER = "keyAccountFromAlias";
 	protected final static String KEY_ACCOUNT_TO_ALIAS_INPUT_PARAMETER = "keyAccountToAlias";
 
+	protected final static String REFERENCE_DATA_INPUT_PARAMETER = "referenceData";
+	
 	protected final String TRANSACTION_RESPONSE_OUTPUT_PARAMETER = "transactionResponse";
 
 	protected final java.lang.String getUrl() {
@@ -28,6 +32,10 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 
 	protected final java.lang.String getAssetAlias() {
 		return (java.lang.String) getInputParameter(ASSET_ALIAS_INPUT_PARAMETER);
+	}
+	
+	protected final java.lang.String getAssetId() {
+		return (java.lang.String) getInputParameter(ASSET_ID_INPUT_PARAMETER);
 	}
 	
 	protected final java.lang.String getAccountToAlias() {
@@ -55,6 +63,10 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 		return (java.lang.String) getInputParameter(KEY_ACCOUNT_TO_ALIAS_INPUT_PARAMETER);
 	}
 	
+	protected final java.util.List getReferenceData() {
+        return (java.util.List) getInputParameter(REFERENCE_DATA_INPUT_PARAMETER);
+    }
+	
 	protected final void setTransactionResponse(org.bonitasoft.connectors.chain.TransactionResponse transactionResponse) {
 		setOutputParameter(TRANSACTION_RESPONSE_OUTPUT_PARAMETER, transactionResponse);
 	}
@@ -76,6 +88,11 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 			getAssetAlias();
 		} catch (ClassCastException cce) {
 			throw new ConnectorValidationException("asset alias type is invalid");
+		}
+		try {
+			getAssetId();
+		} catch (ClassCastException cce) {
+			throw new ConnectorValidationException("asset id type is invalid");
 		}
 		try {
 			getAccountToAlias();
@@ -107,6 +124,11 @@ public abstract class AbstractChainSpendAssetImpl extends AbstractConnector {
 		} catch (ClassCastException cce) {
 			throw new ConnectorValidationException("key account From alias type is invalid");
 		}
+		try {
+            getReferenceData();
+        } catch (ClassCastException cce) {
+            throw new ConnectorValidationException("reference data type is invalid");
+        }
 	}
 
 }

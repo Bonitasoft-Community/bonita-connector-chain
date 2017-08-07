@@ -7,6 +7,7 @@ public abstract class AbstractChainGetBalanceImpl extends AbstractConnector {
 
 	protected final static String URL_INPUT_PARAMETER = "url";
 	protected final static String ACCOUNTTOKEN_INPUT_PARAMETER = "accountToken";
+	protected final static String ASSET_ID_INPUT_PARAMETER = "assetId";
 	protected final static String ASSET_ALIAS_INPUT_PARAMETER = "assetAlias";
 	protected final static String ACCOUNT_ALIAS_INPUT_PARAMETER = "accountAlias";
 
@@ -20,6 +21,10 @@ public abstract class AbstractChainGetBalanceImpl extends AbstractConnector {
 		return (java.lang.String) getInputParameter(ACCOUNTTOKEN_INPUT_PARAMETER);
 	}
 
+	protected final java.lang.String getAssetId() {
+		return (java.lang.String) getInputParameter(ASSET_ID_INPUT_PARAMETER);
+	}
+	
 	protected final java.lang.String getAssetAlias() {
 		return (java.lang.String) getInputParameter(ASSET_ALIAS_INPUT_PARAMETER);
 	}
@@ -27,8 +32,6 @@ public abstract class AbstractChainGetBalanceImpl extends AbstractConnector {
 	protected final java.lang.String getAccountAlias() {
 		return (java.lang.String) getInputParameter(ACCOUNT_ALIAS_INPUT_PARAMETER);
 	}
-	
-	
 	
 	protected final void setBalance(org.bonitasoft.connectors.chain.Balance balance) {
 		setOutputParameter(BALANCE_OUTPUT_PARAMETER, balance);
@@ -51,6 +54,11 @@ public abstract class AbstractChainGetBalanceImpl extends AbstractConnector {
 			getAssetAlias();
 		} catch (ClassCastException cce) {
 			throw new ConnectorValidationException("asset alias type is invalid");
+		}
+		try {
+			getAssetId();
+		} catch (ClassCastException cce) {
+			throw new ConnectorValidationException("asset id type is invalid");
 		}
 		try {
 			getAccountAlias();

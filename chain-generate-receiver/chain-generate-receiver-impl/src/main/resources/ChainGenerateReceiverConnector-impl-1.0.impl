@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>ChainGenerateReceiverConnector-impl</implementationId>
+  <implementationVersion>1.0</implementationVersion>
+  <definitionId>ChainGenerateReceiverConnector</definitionId>
+  <definitionVersion>1.0</definitionVersion>
+  <implementationClassname>org.bonitasoft.connectors.chain.ChainGenerateReceiverConnector</implementationClassname>
+  <hasSources>true</hasSources>
+  <description>The implementation of the Chain generate receiver connector.</description>
+  <jarDependencies>
+    <jarDependency>chain-generate-receiver-impl-1.0.jar</jarDependency>
+    <jarDependency>chain-sdk-java-1.1.1.jar</jarDependency>
+  </jarDependencies>
+</implementation:connectorImplementation>

@@ -5,7 +5,8 @@
   <category icon="chain-logo.png" id="chain-logo"/>
   <input name="url" type="java.lang.String"/>
   <input name="accountToken" type="java.lang.String"/>
-  <input mandatory="true" name="assetAlias" type="java.lang.String"/>
+  <input mandatory="false" name="assetId" type="java.lang.String"/>
+  <input mandatory="false" name="assetAlias" type="java.lang.String"/>
   <input mandatory="true" name="accountAlias" type="java.lang.String"/>
   <output name="balance" type="org.bonitasoft.connectors.chain.Balance"/>
   <page id="client-page">
@@ -13,6 +14,7 @@
     <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>
   </page>
   <page id="balance-page">
+    <widget xsi:type="definition:Text" id="assetId" inputName="assetId"/>
     <widget xsi:type="definition:Text" id="assetAlias" inputName="assetAlias"/>
     <widget xsi:type="definition:Text" id="accountAlias" inputName="accountAlias"/>
   </page>

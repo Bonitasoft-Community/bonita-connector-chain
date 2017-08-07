@@ -24,8 +24,8 @@
 		</dependency>
 		<dependency>		
 			<groupId>com.chain</groupId>
-			<artifactId>chain-sdk</artifactId>
-			<version>1.0</version>
+			<artifactId>chain-sdk-java</artifactId>
+			<version>${chain.version}</version>
 		</dependency>
 
 		<dependency>

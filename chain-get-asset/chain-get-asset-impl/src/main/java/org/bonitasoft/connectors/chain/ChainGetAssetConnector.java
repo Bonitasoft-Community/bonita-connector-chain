@@ -3,6 +3,7 @@
  */
 package org.bonitasoft.connectors.chain;
 
+import org.apache.commons.lang3.StringUtils;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +36,9 @@ public class ChainGetAssetConnector extends AbstractChainGetAssetImpl {
 	    Client client;
 	    
 	        
-	    if (getUrl() != null) {
-	        try {
-	        if (getAccountToken() != null) {
+	    if (StringUtils.isNotEmpty(getUrl())) {
+            try {
+                if (StringUtils.isNotEmpty(getAccountToken())) {
 	            client = new Client(getUrl(), getAccountToken());
 	        } else {
 	            client = new Client(getUrl());
@@ -52,8 +53,8 @@ public class ChainGetAssetConnector extends AbstractChainGetAssetImpl {
     	    Asset.Items assets = new Asset.QueryBuilder().setFilter("alias=$1")
                     .addFilterParameter(getAlias()).execute(client);
     	    Asset result = assets.next();
-    	    logger.warn("Asset found: " + result.alias);
-			org.bonitasoft.connectors.chain.Asset formattedResult = new org.bonitasoft.connectors.chain.Asset(result.alias, result.definition);
+    	    logger.info("Asset found: " + result.alias);
+					org.bonitasoft.connectors.chain.Asset formattedResult = new org.bonitasoft.connectors.chain.Asset(result.id, result.alias, result.definition, result.tags);
     	    setAsset(formattedResult);
 	    } catch (ChainException e) {
 			throw new ConnectorException("Error while getting the Chain asset", e.getCause());

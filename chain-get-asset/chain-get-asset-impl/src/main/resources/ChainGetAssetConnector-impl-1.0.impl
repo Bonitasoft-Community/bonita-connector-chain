@@ -9,6 +9,6 @@
   <description>The implementation of the Chain Get Asset Connector.</description>
   <jarDependencies>
     <jarDependency>chain-get-asset-impl-1.0.jar</jarDependency>
-    <jarDependency>chain-sdk-1.0.jar</jarDependency>
+    <jarDependency>chain-sdk-java-1.1.1.jar</jarDependency>
   </jarDependencies>
 </implementation:connectorImplementation>

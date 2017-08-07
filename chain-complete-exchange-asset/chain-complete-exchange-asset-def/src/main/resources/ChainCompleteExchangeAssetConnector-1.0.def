@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>ChainCompleteExchangeAssetConnector</id>
+  <version>1.0</version>
+  <category icon="chain-logo.png" id="chain-logo"/>
+  <input name="url" type="java.lang.String"/>
+  <input name="accountToken" type="java.lang.String"/>
+  <input mandatory="true" name="spendAssetId" type="java.lang.String"/>
+  <input mandatory="true" name="receiveAssetId" type="java.lang.String"/>
+  <input mandatory="true" name="spendAmount" type="java.lang.String"/>
+  <input mandatory="true" name="receiveAmount" type="java.lang.String"/>
+  <input mandatory="true" name="accountAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAccountAlias" type="java.lang.String"/>
+  <input mandatory="false" name="referenceData" type="java.util.List" />
+  <input mandatory="true" name="baseTransaction" type="java.lang.String" />
+  <output name="transactionResponse" type="org.bonitasoft.connectors.chain.TransactionResponse"/>
+  <page id="client-page">
+    <widget xsi:type="definition:Text" id="url" inputName="url"/>
+    <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>
+  </page>
+  <page id="transaction-page">
+    <widget xsi:type="definition:Text" id="baseTransaction" inputName="baseTransaction"/>
+    <widget xsi:type="definition:Text" id="spendAssetId" inputName="spendAssetId"/>
+    <widget xsi:type="definition:Text" id="receiveAssetId" inputName="receiveAssetId"/>
+    <widget xsi:type="definition:Text" id="spendAmount" inputName="spendAmount"/>
+    <widget xsi:type="definition:Text" id="receiveAmount" inputName="receiveAmount"/>
+    <widget xsi:type="definition:Text" id="accountAlias" inputName="accountAlias"/>
+    <widget xsi:type="definition:Text" id="keyAccountAlias" inputName="keyAccountAlias"/>
+    <widget xsi:type="definition:Array" id="referenceData" inputName="referenceData" cols="2">
+      <colsCaption>Name</colsCaption>
+      <colsCaption>Value</colsCaption>
+    </widget>
+  </page>
+</definition:ConnectorDefinition>

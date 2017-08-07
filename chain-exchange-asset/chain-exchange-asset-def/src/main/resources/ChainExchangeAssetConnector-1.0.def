@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>ChainExchangeAssetConnector</id>
+  <version>1.0</version>
+  <category icon="chain-logo.png" id="chain-logo"/>
+  <input name="url" type="java.lang.String"/>
+  <input name="accountToken" type="java.lang.String"/>
+  <input mandatory="true" name="assetOneAlias" type="java.lang.String"/>
+  <input mandatory="true" name="assetTwoAlias" type="java.lang.String"/>
+  <input mandatory="true" name="amountOne" type="java.lang.String"/>
+  <input mandatory="true" name="amountTwo" type="java.lang.String"/>
+  <input mandatory="true" name="accountOneAlias" type="java.lang.String"/>
+  <input mandatory="true" name="accountTwoAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAccountOneAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAccountTwoAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAssetOneAlias" type="java.lang.String"/>
+  <input mandatory="true" name="keyAssetTwoAlias" type="java.lang.String"/>
+  <input mandatory="false" name="referenceDataOne" type="java.util.List" />
+  <input mandatory="false" name="referenceDataTwo" type="java.util.List" />
+  <output name="transactionResponse" type="org.bonitasoft.connectors.chain.TransactionResponse"/>
+  <page id="client-page">
+    <widget xsi:type="definition:Text" id="url" inputName="url"/>
+    <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>
+  </page>
+  <page id="transaction-page">
+    <widget xsi:type="definition:Text" id="assetOneAlias" inputName="assetOneAlias"/>
+    <widget xsi:type="definition:Text" id="assetTwoAlias" inputName="assetTwoAlias"/>
+    <widget xsi:type="definition:Text" id="amountOne" inputName="amountOne"/>
+    <widget xsi:type="definition:Text" id="amountTwo" inputName="amountTwo"/>
+    <widget xsi:type="definition:Text" id="accountOneAlias" inputName="accountOneAlias"/>
+    <widget xsi:type="definition:Text" id="accountTwoAlias" inputName="accountTwoAlias"/>
+    <widget xsi:type="definition:Text" id="keyAccountOneAlias" inputName="keyAccountOneAlias"/>
+    <widget xsi:type="definition:Text" id="keyAccountTwoAlias" inputName="keyAccountTwoAlias"/>
+    <widget xsi:type="definition:Text" id="keyAssetOneAlias" inputName="keyAssetOneAlias"/>
+    <widget xsi:type="definition:Text" id="keyAssetTwoAlias" inputName="keyAssetTwoAlias"/>
+    <widget xsi:type="definition:Array" id="referenceDataOne" inputName="referenceDataOne" cols="2">
+      <colsCaption>Name</colsCaption>
+      <colsCaption>Value</colsCaption>
+    </widget>
+    <widget xsi:type="definition:Array" id="referenceDataTwo" inputName="referenceDataTwo" cols="2">
+      <colsCaption>Name</colsCaption>
+      <colsCaption>Value</colsCaption>
+    </widget>
+  </page>
+</definition:ConnectorDefinition>

@@ -10,6 +10,8 @@
   <input mandatory="true" name="accountAlias" type="java.lang.String"/>
   <input mandatory="true" name="keyAccountAlias" type="java.lang.String"/>
   <input mandatory="true" name="keyAssetAlias" type="java.lang.String"/>
+    <input mandatory="false" name="referenceData" type="java.util.List"/>
+  
   <output name="transactionResponse" type="org.bonitasoft.connectors.chain.TransactionResponse"/>
   <page id="client-page">
     <widget xsi:type="definition:Text" id="url" inputName="url"/>
@@ -21,5 +23,9 @@
     <widget xsi:type="definition:Text" id="accountAlias" inputName="accountAlias"/>
     <widget xsi:type="definition:Text" id="keyAccountAlias" inputName="keyAccountAlias"/>
     <widget xsi:type="definition:Text" id="keyAssetAlias" inputName="keyAssetAlias"/>
+    <widget xsi:type="definition:Array" id="referenceData" inputName="referenceData" cols="2">
+      <colsCaption>Name</colsCaption>
+      <colsCaption>Value</colsCaption>
+    </widget>
   </page>
 </definition:ConnectorDefinition>

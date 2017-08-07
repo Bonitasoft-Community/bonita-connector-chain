@@ -5,13 +5,15 @@
   <category icon="chain-logo.png" id="chain-logo"/>
   <input name="url" type="java.lang.String"/>
   <input name="accountToken" type="java.lang.String"/>
-  <input mandatory="true" name="assetAlias" type="java.lang.String"/>
+  <input mandatory="false" name="assetAlias" type="java.lang.String"/>
+  <input mandatory="false" name="assetId" type="java.lang.String"/>
   <input mandatory="true" name="amount" type="java.lang.String"/>
   <input mandatory="true" name="accountFromAlias" type="java.lang.String"/>
   <input mandatory="true" name="accountToAlias" type="java.lang.String"/>
   <input mandatory="true" name="keyAccountFromAlias" type="java.lang.String"/>
   <input mandatory="true" name="keyAccountToAlias" type="java.lang.String"/>
-  <input mandatory="true" name="keyAssetAlias" type="java.lang.String"/>
+  <input mandatory="false" name="keyAssetAlias" type="java.lang.String"/>
+  <input mandatory="false" name="referenceData" type="java.util.List"/>
   <output name="transactionResponse" type="org.bonitasoft.connectors.chain.TransactionResponse"/>
   <page id="client-page">
     <widget xsi:type="definition:Text" id="url" inputName="url"/>
@@ -19,11 +21,16 @@
   </page>
   <page id="transaction-page">
     <widget xsi:type="definition:Text" id="assetAlias" inputName="assetAlias"/>
+    <widget xsi:type="definition:Text" id="assetId" inputName="assetId"/>
     <widget xsi:type="definition:Text" id="amount" inputName="amount"/>
     <widget xsi:type="definition:Text" id="accountFromAlias" inputName="accountFromAlias"/>
     <widget xsi:type="definition:Text" id="accountToAlias" inputName="accountToAlias"/>
     <widget xsi:type="definition:Text" id="keyAccountFromAlias" inputName="keyAccountFromAlias"/>
     <widget xsi:type="definition:Text" id="keyAccountToAlias" inputName="keyAccountToAlias"/>
     <widget xsi:type="definition:Text" id="keyAssetAlias" inputName="keyAssetAlias"/>
+    <widget xsi:type="definition:Array" id="referenceData" inputName="referenceData" cols="2">
+      <colsCaption>Name</colsCaption>
+      <colsCaption>Value</colsCaption>
+    </widget>
   </page>
 </definition:ConnectorDefinition>

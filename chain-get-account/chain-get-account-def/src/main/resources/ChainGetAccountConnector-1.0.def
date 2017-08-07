@@ -6,7 +6,7 @@
   <input name="url" type="java.lang.String"/>
   <input name="accountToken" type="java.lang.String"/>
   <input mandatory="true" name="alias" type="java.lang.String"/>
-  <output name="account" type="org.bonitasoft.connectors.chain.Asset"/>
+  <output name="account" type="org.bonitasoft.connectors.chain.Account"/>
   <page id="client-page">
     <widget xsi:type="definition:Text" id="url" inputName="url"/>
     <widget xsi:type="definition:Text" id="accountToken" inputName="accountToken"/>

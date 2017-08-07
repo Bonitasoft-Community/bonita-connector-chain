@@ -3,6 +3,7 @@
  */
 package org.bonitasoft.connectors.chain;
 
+import org.apache.commons.lang3.StringUtils;
 import org.bonitasoft.engine.connector.ConnectorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +36,9 @@ public class ChainGetAccountConnector extends AbstractChainGetAccountImpl {
 	    Client client;
 	    
 	        
-	    if (getUrl() != null) {
-	        try {
-	        if (getAccountToken() != null) {
+	    if (StringUtils.isNotEmpty(getUrl())) {
+            try {
+                if (StringUtils.isNotEmpty(getAccountToken())) {
 	            client = new Client(getUrl(), getAccountToken());
 	        } else {
 	            client = new Client(getUrl());

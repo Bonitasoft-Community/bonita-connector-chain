@@ -12,6 +12,7 @@ public abstract class AbstractChainIssueAssetImpl extends AbstractConnector {
 	protected final static String AMOUNT_INPUT_PARAMETER = "amount";
 	protected final static String KEY_ASSET_ALIAS_INPUT_PARAMETER = "keyAssetAlias";
 	protected final static String KEY_ACCOUNT_ALIAS_INPUT_PARAMETER = "keyAccountAlias";
+    protected final static String REFERENCE_DATA_INPUT_PARAMETER = "referenceData";
 
 	protected final String TRANSACTION_RESPONSE_OUTPUT_PARAMETER = "transactionResponse";
 
@@ -42,6 +43,10 @@ public abstract class AbstractChainIssueAssetImpl extends AbstractConnector {
 	protected final java.lang.String getKeyAccountAlias() {
 		return (java.lang.String) getInputParameter(KEY_ACCOUNT_ALIAS_INPUT_PARAMETER);
 	}
+	
+	protected final java.util.List getReferenceData() {
+        return (java.util.List) getInputParameter(REFERENCE_DATA_INPUT_PARAMETER);
+    }
 	
 	protected final void setTransactionResponse(org.bonitasoft.connectors.chain.TransactionResponse transactionResponse) {
 		setOutputParameter(TRANSACTION_RESPONSE_OUTPUT_PARAMETER, transactionResponse);
@@ -85,6 +90,11 @@ public abstract class AbstractChainIssueAssetImpl extends AbstractConnector {
 		} catch (ClassCastException cce) {
 			throw new ConnectorValidationException("key account alias type is invalid");
 		}
+		try {
+            getReferenceData();
+        } catch (ClassCastException cce) {
+            throw new ConnectorValidationException("reference data type is invalid");
+        }
 	}
 
 }
